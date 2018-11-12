@@ -57,7 +57,7 @@ canal.instance.filter.black.regex =
 ```
 # 联系方式
   若有问题欢迎大家及时沟通
-* QQ：848050490
-* 邮箱: 848050490@qq.com
+* QQ：1874204575
+* 邮箱: 1874204575@qq.com
 
 
