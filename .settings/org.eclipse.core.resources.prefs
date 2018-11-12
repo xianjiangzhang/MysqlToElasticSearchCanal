@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/main/resources=UTF-8
+encoding//src/main/resources/dev/conf/iyan-mysql-es.properties=UTF-8
+encoding//src/main/resources/prod/conf/iyan-mysql-es.properties=UTF-8
+encoding//src/main/resources/test/conf/iyan-mysql-es.properties=UTF-8
+encoding/<project>=UTF-8

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 配置项目名称及输出路径  -->
+    <property name="logPath" value="/home/logs/sysc_canal" /> 
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}:%line - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<Encoding>UTF-8</Encoding>
+		<File>${logPath}/w2cx-sysc-canal.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${logPath}/%d{yyyy-MM-dd}/log-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+			<TimeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>1024MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%date [%thread] %-5level %logger{80}- %msg%n</pattern>
+		</layout>
+	</appender>
+
+	<appender name="ERRORFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${logPath}/log-error-%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}:%line - %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	
+	
+    <logger name="com.iyan.support" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="ERRORFILE" />
+<!-- 
+		<appender-ref ref="STDOUT" />
+ -->
+	</logger>
+	
+	
+	
+	
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+<!-- 
+		<appender-ref ref="FILE" />
+		<appender-ref ref="ERRORFILE" />
+ -->
+	</root>
+</configuration>
