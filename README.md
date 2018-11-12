@@ -1,0 +1,2 @@
+# MysqlToElasticSearchCanal
+利用Canal同步mysql数据到ElasticSearch，通过修改配置文件支持动态同步Mysql数据
